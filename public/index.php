@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-const APP_VERSION = 'v1';
+const APP_VERSION = 'v2';
 
 $pdo = new PDO(
     sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', getenv('DB_HOST') ?: 'localhost', getenv('DB_PORT') ?: '3306', getenv('DB_DATABASE') ?: 'retest'),
@@ -42,4 +42,4 @@ if ($path === '/api/notes') {
 $count = (int) $pdo->query('SELECT COUNT(*) FROM notes')->fetchColumn();
 header('Content-Type: text/html; charset=UTF-8');
 ?>
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MySQL persistence test</title></head><body><main><small>MYSQL PERSISTENCE · <?= APP_VERSION ?></small><h1>Database connected.</h1><p><?= $count ?> persistent note(s).</p></main></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MySQL persistence test</title></head><body><main><small>MYSQL PERSISTENCE · <?= APP_VERSION ?></small><h1>Database survived the redeploy.</h1><p><?= $count ?> persistent note(s).</p></main></body></html>
