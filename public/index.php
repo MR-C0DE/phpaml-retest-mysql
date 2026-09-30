@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-const APP_VERSION = 'v2';
+const APP_VERSION = 'v3';
 
 $pdo = new PDO(
     sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', getenv('DB_HOST') ?: 'localhost', getenv('DB_PORT') ?: '3306', getenv('DB_DATABASE') ?: 'retest'),
